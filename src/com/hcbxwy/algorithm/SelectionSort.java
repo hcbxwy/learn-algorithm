@@ -9,6 +9,7 @@
 package com.hcbxwy.algorithm;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * selection sort
@@ -19,14 +20,19 @@ import java.util.Arrays;
 public class SelectionSort {
 
     public static void main(String[] args) {
-        int[] arr = {8, 5, 3, 7, 10, 6, 1, 2, 9, 4};
+        for (int i = 0; i < 100; i++) {
+            check();
+            System.out.println("-------------------------");
+        }
+    }
+
+    private static void sort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int minPos = i;
             for (int j = i + 1; j < arr.length; j++) {
                 minPos = arr[j] < arr[minPos] ? j : minPos;
             }
             swap(arr, i, minPos);
-            System.out.println("经过第" + (i + 1) + "次排序，minPos=" + minPos + ", arr=" + Arrays.toString(Arrays.stream(arr).toArray()));
         }
     }
 
@@ -34,5 +40,32 @@ public class SelectionSort {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
+    }
+
+    private static void check() {
+        int[] arr = new int[10000];
+        Random random = new Random();
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(10000);
+        }
+        int[] arr2 = arr;
+        System.out.println("随机数组arr：" + Arrays.toString(arr));
+        System.out.println("随机数组arr2：" + Arrays.toString(arr));
+        long t1 = System.currentTimeMillis();
+        sort(arr);
+        long t2 = System.currentTimeMillis();
+        System.out.println("选择排序耗时：" + (t2 - t1) + " ms");
+        Arrays.sort(arr2);
+        long t3 = System.currentTimeMillis();
+        System.out.println("Arrays.sort耗时：" + (t3 - t2) + " ms");
+        boolean same = true;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != arr2[i]) {
+                same = false;
+            }
+        }
+        System.out.println("验证结果：" + (same ? "验证通过" : "验证不通过"));
+        System.out.println("排序后数组arr：" + Arrays.toString(arr));
+        System.out.println("排序后数组arr2：" + Arrays.toString(arr));
     }
 }
