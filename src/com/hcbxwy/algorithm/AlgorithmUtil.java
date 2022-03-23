@@ -21,33 +21,14 @@ public class AlgorithmUtil {
 
     private AlgorithmUtil(){}
 
-    public static void main(String[] args) {
-        int[] arr = randomArr();
-        int[] arr2 = Arrays.copyOf(arr, arr.length);
-        Arrays.sort(arr);
-        SelectionSort.sort(arr2);
-        check(arr, arr2);
-    }
-
     public static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
 
-    public static void check(int[] arr, int[] arr2) {
-        boolean same = true;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != arr2[i]) {
-                same = false;
-                break;
-            }
-        }
-        System.out.println("验证结果：" + (same ? "right" : "wrong"));
-    }
-
-    private static int[] randomArr() {
-        int[] arr = new int[10000];
+    public static int[] randomArr(int length) {
+        int[] arr = new int[length];
         Random random = new Random();
         for (int i = 0; i < arr.length; i++) {
             arr[i] = random.nextInt(10000);
