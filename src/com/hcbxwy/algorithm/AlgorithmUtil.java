@@ -19,6 +19,8 @@ import java.util.Random;
  */
 public class AlgorithmUtil {
 
+    private static final int BIT_INT = 32;
+
     private AlgorithmUtil(){}
 
     public static void swap(int[] arr, int i, int j) {
@@ -34,6 +36,13 @@ public class AlgorithmUtil {
             arr[i] = random.nextInt(10000);
         }
         return arr;
+    }
+
+    public static void printBinary(int num) {
+        for (int i = BIT_INT - 1; i >= 0; i--) {
+            System.out.print((num & (1 << i)) == 0 ? "0" : "1");
+        }
+        System.out.println();
     }
 
     public static void print(int[] arr) {
