@@ -8,7 +8,13 @@
  */
 package com.hcbxwy.algorithm;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -18,8 +24,6 @@ import java.util.Random;
  * @date 2022/3/14 9:04
  */
 public class AlgorithmUtil {
-
-    private static final int BIT_INT = 32;
 
     private AlgorithmUtil(){}
 
@@ -38,14 +42,14 @@ public class AlgorithmUtil {
         return arr;
     }
 
-    public static void printBinary(int num) {
-        for (int i = BIT_INT - 1; i >= 0; i--) {
-            System.out.print((num & (1 << i)) == 0 ? "0" : "1");
-        }
-        System.out.println();
-    }
-
     public static void print(int[] arr) {
         System.out.println("排序后，arr=" + Arrays.toString(arr));
+    }
+
+    public static void main(String[] args) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date parse = format.parse("2039-01-01");
+        long time = parse.getTime();
+        System.out.println(time);
     }
 }
