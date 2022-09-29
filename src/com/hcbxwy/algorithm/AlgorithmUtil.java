@@ -10,9 +10,6 @@ package com.hcbxwy.algorithm;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
@@ -37,13 +34,17 @@ public class AlgorithmUtil {
         int[] arr = new int[length];
         Random random = new Random();
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(10000);
+            arr[i] = random.nextInt(10);
         }
         return arr;
     }
 
-    public static void print(int[] arr) {
+    public static void printAfterSort(int[] arr) {
         System.out.println("排序后，arr=" + Arrays.toString(arr));
+    }
+
+    public static void printBeforeSort(int[] arr) {
+        System.out.println("排序前，arr=" + Arrays.toString(arr));
     }
 
     public static void main(String[] args) throws ParseException {

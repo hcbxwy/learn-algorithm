@@ -25,7 +25,7 @@ public class SelectionSort {
     public static void main(String[] args) {
         int[] arr = {4, 2, 5, 1, 8, 9, 3, 6, 7};
         sort(arr);
-        AlgorithmUtil.print(arr);
+        AlgorithmUtil.printAfterSort(arr);
     }
 
     public static void sort(int[] arr) {
