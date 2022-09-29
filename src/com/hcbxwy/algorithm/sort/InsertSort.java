@@ -6,7 +6,9 @@
  * <li>Copyright ©2016-2022 广州职赢未来信息科技有限公司 All Rights Reserved.</li>
  * </ul>
  */
-package com.hcbxwy.algorithm;
+package com.hcbxwy.algorithm.sort;
+
+import com.hcbxwy.algorithm.AlgorithmUtil;
 
 /**
  * 插入排序
